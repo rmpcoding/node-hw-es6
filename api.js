@@ -5,7 +5,7 @@ var api = {
   getUser(gitHubUserName){
     return axios.get(baseUrl + gitHubUserName)
     .then(function (response) {
-      console.log(response);
+      return response;
     })
   }
 }
