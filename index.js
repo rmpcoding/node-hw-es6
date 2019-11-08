@@ -1,10 +1,7 @@
-var fs = require("fs");
-var util = require("util")
 var inquirer = require("inquirer");
 var api = require("./api");
 var generator = require("./generate-html")
 var pdf = require("html-pdf");
-var html = fs.generator("./node-hw-es6/gitprofile.html", "utf8") //it says generator() is not a function.
 var options = {format: "Letter"};
 
 inquirer
@@ -24,7 +21,17 @@ inquirer
   .then(({username, color}) => {
     api.getUser(username).then((data) => {
       // console.log(color, data);
-      generator(color,data)
+    let html =  generator(color,data)
+    pdf.create(html, options).toFile("./gitprofile.pdf", (error, response) => {
+      if (error) {
+        console.log(error);
+        return error
+      } else {
+        console.log(response);
+        return response;
+      }
+    })
+
     })
   });
 
@@ -32,13 +39,15 @@ inquirer
 
 
       // .then((html, options) => {
-    //   pdf.create(html).toFile("./gitprofile.pdf", (error, response) => {
-    //     if (errror) {
-    //       return console.log(error);
-    //     } else {
-    //       console.log(response);
-    //     }
-    //   })
+      // pdf
+      
+      // .create(html).toFile("./gitprofile.pdf", (error, response) => {
+      //   if (errror) {
+      //     return console.log(error);
+      //   } else {
+      //     console.log(response);
+      //   }
+      // })
     // });
   // return back to this once we get the git stars
   // .then((response) => {

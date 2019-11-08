@@ -1,3 +1,6 @@
+
+
+
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -41,7 +44,7 @@ const generator = (color, response) => {
 
 
       <p>hello, world! I'm from the backend!</p>
-
+      <p>${response.data.url}</p>
 
 
 
