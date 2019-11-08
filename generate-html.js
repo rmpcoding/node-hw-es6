@@ -1,6 +1,3 @@
-
-
-
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -29,8 +26,6 @@ const colors = {
 };
 
 const generator = (color, response) => {
-  // console.log(response.data.url);
-  // console.log(colors[color].headerBackground);
   return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -44,7 +39,7 @@ const generator = (color, response) => {
 
 
       <p>hello, world! I'm from the backend!</p>
-      <p>${response.data.url}</p>
+
 
 
 
@@ -193,3 +188,18 @@ const generator = (color, response) => {
 // generator();
 
 module.exports = generator;
+
+
+
+// 
+{/* <p>${response.data.url}</p>
+<p>${response.data.avatar_url}</p>
+<p>${response.data.login}</p>
+<p>${response.data.html_url}</p>
+<p>${response.data.blog}</p>
+<p>${response.data.bio}</p>
+<p>${response.data.public_repos}</p>
+<p>${response.data.followers}</p>
+<p>${response.data.starred_url}</p>
+<p>${response.data.following}</p> */}
+// 
