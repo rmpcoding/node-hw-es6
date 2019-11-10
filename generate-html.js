@@ -75,16 +75,16 @@ const generator = (color, response) => {
       <img class="rounded float-left photo-header" src=${response.data.avatar_url} alt="" class="photo">
       </h1>
       <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
-      <p>${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
-      </main>
 
+      
+      <p class="text-justify float-right">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+      
+      </main>
 
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 full-column">
-          
-        
-        
+            <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
           </div>
         </div>
       </div>
