@@ -70,7 +70,8 @@ const generator = (color, response) => {
         <nav class="jumbotron">
           <div class="jumbotron">
             <h1 class="display-4">
-              Hi, I'm <span class="git-name">${response.data.login}</span>
+            <img class="rounded mx-auto d-block" src=${response.data.avatar_url} alt="" class="photo">
+              Hi, I'm <span class="git-name">${response.data.name}</span>
             </h1>
             <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
             <hr class="my-4" />
@@ -78,19 +79,30 @@ const generator = (color, response) => {
           </div>
         </nav>
         
-        <div class="container">
+
           
             <style>
               .jumbotron {
                   background-color: ${colors[color].headerBackground};
                   }
+                  color: white;
                 body {
                   background-color: white;
                   -webkit-print-color-adjust: exact !important;
                 }
+                @media print { 
+                  body { 
+                    zoom: .5; 
+                  } 
+                .photo
+                  {
+                    object-fit: cover;                  
+                  }
             </style>
+      </body>
   `;
 };
+
 
 module.exports = generator;
 
