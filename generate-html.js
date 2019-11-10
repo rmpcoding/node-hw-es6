@@ -68,21 +68,19 @@ const generator = (color, response) => {
       <body>
       
       
-      <div class="jumbotron wrapper">
       <main>
-      <h1 class="display-2">
-      <span class="git-name">${response.data.name}</span>
-      <img class="rounded float-left photo-header" src=${response.data.avatar_url} alt="" class="photo">
-      </h1>
-      <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
-
-      
-      <p class="text-justify float-right">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
-      
+        <div class="jumbotron wrapper">
+          <h1 class="display-2">
+          <span class="git-name">${response.data.name}</span>
+          <img class="rounded float-left photo-header" src=${response.data.avatar_url} alt="" class="photo">
+          </h1>
+          <p class="lead text-justify flex-column"><span class="git-bio">${response.data.bio}</span></p>
+          <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+        </div>
       </main>
 
       <div class="container-fluid">
-        <div class="row">
+        <div class="row my-4 middle-row">
           <div class="col-12 full-column">
             <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
           </div>
@@ -90,7 +88,6 @@ const generator = (color, response) => {
       </div>
 
 
-   </div>
 
           
             <style>
@@ -110,6 +107,7 @@ const generator = (color, response) => {
                 background-color: #E9EDEE;
                 height: auto;
                 padding-top: 30px;
+                display: flex;
               }
      
               .jumbotron {
@@ -124,36 +122,43 @@ const generator = (color, response) => {
                 @media print { 
                   body { 
                     zoom: .5; 
-                  } 
-                  .photo-header {
-                    position: relative;
-                    margin: 0 auto;
-                    margin-bottom: -50px;
-                    display: flex;
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    background-color: ${colors[color].headerBackground};
-                    color: ${colors[color].headerColor};
-                    padding: 10px;
-                    width: 95%;
-                    border-radius: 6px;
-                    }
-           
-                  .photo-header {
-                    width: 250px;
-                    height: 250px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                    margin-top: -75px;
-                    border: 6px solid ${colors[color].photoBorderColor};
-                    box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
-                    }
-                    .container {
-                      padding: 50px;
-                      padding-left: 100px;
-                      padding-right: 100px;
-                      }             
-        
+                } 
+                .photo-header {
+                  position: relative;
+                  margin: 0 auto;
+                  margin-bottom: -50px;
+                  display: flex;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                  background-color: ${colors[color].headerBackground};
+                  color: ${colors[color].headerColor};
+                  padding: 10px;
+                  width: 95%;
+                  border-radius: 6px;
+                  }
+          
+                .photo-header {
+                  width: 250px;
+                  height: 250px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-top: -75px;
+                  border: 6px solid ${colors[color].photoBorderColor};
+                  box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+                  }
+                .container {
+                  padding: 50px;
+                  padding-left: 100px;
+                  padding-right: 100px;
+                  }             
+                .middle-row {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+                  margin-top: 20%;
+                  margin-bottom: 20px;
+                }
+             
 
             </style>
       </body>
