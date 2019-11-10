@@ -66,22 +66,52 @@ const generator = (color, response) => {
         crossorigin="anonymous"
       ></script>
       <body>
+      
+      
+      <div class="jumbotron wrapper">
+      <main>
+      <h1 class="display-2">
+      <span class="git-name">${response.data.name}</span>
+      <img class="rounded float-left photo-header" src=${response.data.avatar_url} alt="" class="photo">
+      </h1>
+      <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
+      <p>${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+      </main>
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 full-column">
+          
         
-        <nav class="jumbotron">
-          <div class="jumbotron">
-            <h1 class="display-4">
-            <img class="rounded mx-auto d-block" src=${response.data.avatar_url} alt="" class="photo">
-              Hi, I'm <span class="git-name">${response.data.name}</span>
-            </h1>
-            <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
-            <hr class="my-4" />
-            <p>${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+        
           </div>
-        </nav>
-        
+        </div>
+      </div>
+
+
+   </div>
 
           
             <style>
+            html, body {
+              padding: 0;
+              margin: 0;
+              }
+              html, body, .wrapper {
+                height: 100%;
+                }       
+              .wrapper {
+                background-color: ${colors[color].wrapperBackground};
+                padding-top: 100px;
+                }
+
+              main {
+                background-color: #E9EDEE;
+                height: auto;
+                padding-top: 30px;
+              }
+     
               .jumbotron {
                   background-color: ${colors[color].headerBackground};
                   }
@@ -89,28 +119,48 @@ const generator = (color, response) => {
                 body {
                   background-color: white;
                   -webkit-print-color-adjust: exact !important;
+                  font-family: 'Cabin', sans-serif;         
                 }
                 @media print { 
                   body { 
                     zoom: .5; 
                   } 
-                .photo
-                  {
-                    object-fit: cover;                  
-                  }
+                  .photo-header {
+                    position: relative;
+                    margin: 0 auto;
+                    margin-bottom: -50px;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    background-color: ${colors[color].headerBackground};
+                    color: ${colors[color].headerColor};
+                    padding: 10px;
+                    width: 95%;
+                    border-radius: 6px;
+                    }
+           
+                  .photo-header {
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-top: -75px;
+                    border: 6px solid ${colors[color].photoBorderColor};
+                    box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+                    }
+                    .container {
+                      padding: 50px;
+                      padding-left: 100px;
+                      padding-right: 100px;
+                      }             
+        
+
             </style>
       </body>
   `;
 };
 
-
 module.exports = generator;
-
-
-
-
-
-
 
 //
 {
