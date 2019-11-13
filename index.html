@@ -13,125 +13,128 @@
       rel="stylesheet"
     />
     <title>Git Resume</title>
-    <head>
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous"
-      />
-    </head>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <body>
-    
-    
-    <div class="jumbotron wrapper">
-    <main>
-    <h1 class="display-2">
-    <span class="git-name">Robert Parsons</span>
-    <img class="rounded float-left photo-header" src="https://avatars1.githubusercontent.com/u/55468908?v=4" alt="" class="photo">
-    </h1>
-    <p class="lead text-justify"><span class="git-bio">${response.data.bio}</span></p>
-    <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
-    
 
-    
-    </main>
+    <body class="grid">
 
-    <div class="container-fluid">
-      <div class="row my-4 main-row">
-        <div class="col-12 full-column">
-          <p class="lead"><span class="git-bio">${response.data.bio}</span></p>
+      <h1 class="display-2">
+          <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
+          <span class="git-name">Red Programming Language</span>
+        </h1>
+        <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
+        <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+
+      <main>
+        <div class="public-repositories">
+          <p>Public Repositories:</p>
         </div>
-      </div>
-    </div>
 
+        <div class="followers">
+          <p>Followers:</p>
+        </div>
 
- </div>
+        <div class="github-stars">
+          <p>Stars:</p>
+        </div>
+
+        <div class="following">
+          <p>Following:</p>
+        </div>
+      </main>
+
 
         
-          <style>
-          html, body {
-            padding: 0;
-            margin: 0;
+        
+        <style>
+          .grid {
+            display: grid;
+            height: 100%;
+            width: 100%;
+            border: 1px solid white;
+          }
+
+          html, body, .wrapper {
+            height: 100%;
+          }       
+
+          body {
+            background-color: white;
+            -webkit-print-color-adjust: exact !important;
+            font-family: 'Cabin', sans-serif;         
+          }
+
+          @media print { 
+            body { 
+              zoom: .5; 
+              } 
             }
-            html, body, .wrapper {
-              height: 100%;
-              }       
-            .wrapper {
-              background-color: ${colors[color].wrapperBackground};
-              padding-top: 100px;
-              }
+
+            p, .git-bio {
+              text-align: center;
+            }
+
+            h1 {
+              margin: auto;
+            }
+
+            .git-name {
+              font-size: 200%;
+            }
 
             main {
-              background-color: #E9EDEE;
-              height: auto;
-              padding-top: 30px;
+              display: grid;
+              grid-template: 50% 50% / 50% 50%;
             }
-   
-            .jumbotron {
-                background-color: ${colors[color].headerBackground};
-                }
-                color: white;
-              body {
-                background-color: white;
-                -webkit-print-color-adjust: exact !important;
-                font-family: 'Cabin', sans-serif;         
-              }
-              @media print { 
-                body { 
-                  zoom: .5; 
-              } 
-              .photo-header {
-                position: relative;
-                margin: 0 auto;
-                margin-bottom: -50px;
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                background-color: ${colors[color].headerBackground};
-                color: ${colors[color].headerColor};
-                padding: 10px;
-                width: 95%;
-                border-radius: 6px;
-                }
-        
-              .photo-header {
-                width: 250px;
-                height: 250px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-top: -75px;
-                border: 6px solid ${colors[color].photoBorderColor};
-                box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
-                }
-              .container {
-                padding: 50px;
-                padding-left: 100px;
-                padding-right: 100px;
-                }             
-              .main-row {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-top: 20%;
-                margin-bottom: 20px;
-              }
-           
 
+            .public-repositories {
+              border: 3px green solid;
+              padding: 10px;
+              margin: 1% 1% 1% 1%;
+            }
+
+            .followers {
+              border: 3px green solid;
+              padding: 10px;
+              margin: 1% 1% 1% 1%;
+            }
+
+            .following {
+              border: 3px green solid;
+              padding: 10px;
+              margin: 1% 1% 1% 1%;
+            }
+
+            .github-stars {
+              border: 3px green solid;
+              padding: 10px;
+              margin: 1% 1% 1% 1%;
+            }
+
+            .photo-header {
+              display: flex;
+              background-color: blue;
+              padding: 10px;
+              margin: 5% auto;
+              width: 250px;
+              height: 250px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 6px solid yellow;
+              box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+            }
+
+            .box {
+              border: 3px solid red;
+            }          
+
+            .middle-row {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              margin-top: 20%;
+              margin-bottom: 20px;
+            }
           </style>
     </body>
+  </html>
+
+
