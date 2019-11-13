@@ -25,21 +25,28 @@
       </p>
 
       <main>
-        <div class="public-repositories">
-          <p>Public Repositories:</p>
-        </div>
+        <div class="buttons">
 
-        <div class="followers">
-          <p>Followers:</p>
+          <div class="public-repositories btn">
+            <p>Public Repositories:</p>
+          </div>
+          
+          <div class="followers btn">
+            <p>Followers:</p>
+          </div>
         </div>
-
-        <div class="github-stars">
+          
+        <div class="buttons">
+          
+          </div>
+        <div class="github-stars btn">
           <p>Stars:</p>
         </div>
 
-        <div class="following">
+        <div class="following btn">
           <p>Following:</p>
         </div>
+      </div>
       </main>
 
 
@@ -50,6 +57,10 @@
           main {
             display: grid;
             grid-template: 50% 50% / 50% 50%;
+          }
+
+          .btn {
+            display: inline-block;
           }
 
           body {

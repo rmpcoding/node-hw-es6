@@ -44,9 +44,10 @@ const generator = (color, response) => {
       <title>Git Resume</title>
   
       <body>
-        <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
-  
-        <h1 class="display-2">
+      <h1><img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo"></h1>
+      
+      
+      <h1 class="display-2">
           <span class="git-name">${response.data.name}</span>
         </h1>
           <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
@@ -54,24 +55,30 @@ const generator = (color, response) => {
 
 
   
-        <main>
-          <div class="public-repositories">
-            <p>Public Repositories:</p>
-          </div>
+          <main>
+          <div class="buttons">
   
-          <div class="followers">
-            <p>Followers:</p>
+            <div class="public-repositories btn">
+              <p>Public Repositories:</p>
+            </div>
+            
+            <div class="followers btn">
+              <p>Followers:</p>
+            </div>
           </div>
-  
-          <div class="github-stars">
+            
+          <div class="buttons">
+            
+            </div>
+          <div class="github-stars btn">
             <p>Stars:</p>
           </div>
   
-          <div class="following">
+          <div class="following btn">
             <p>Following:</p>
           </div>
+        </div>
         </main>
-  
   
           
           
@@ -81,8 +88,14 @@ const generator = (color, response) => {
               display: grid;
               grid-template: 50% 50% / 50% 50%;
               background-color: yellow;
-              border 1px solid green
+              border 1px solid green;
+              margin: auto;
             }   
+
+            .btn {
+              display: inline-block;
+              width: 45%;
+            }
   
             body {
               display: grid;
@@ -114,6 +127,10 @@ const generator = (color, response) => {
               }
   
               p, .git-bio {
+                text-align: center;
+              }
+
+              h1 {
                 text-align: center;
               }
   
