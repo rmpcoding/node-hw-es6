@@ -14,14 +14,15 @@
     />
     <title>Git Resume</title>
 
-    <body class="grid">
+    <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
+    <body>
 
       <h1 class="display-2">
-          <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
-          <span class="git-name">Red Programming Language</span>
-        </h1>
+        <span class="git-name">Red Programming Language</span>
+      </h1>
         <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
-        <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+        <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}
+      </p>
 
       <main>
         <div class="public-repositories">
@@ -45,22 +46,34 @@
         
         
         <style>
-          .grid {
+ 
+          main {
             display: grid;
-            height: 100%;
-            width: 100%;
-            border: 1px solid white;
+            grid-template: 50% 50% / 50% 50%;
           }
 
-          html, body, .wrapper {
-            height: 100%;
-          }       
-
           body {
+            display: grid;
+            height: 100%;
+            width: auto;
+            border: 1px solid white;
             background-color: white;
             -webkit-print-color-adjust: exact !important;
             font-family: 'Cabin', sans-serif;         
           }
+
+          .photo-header {
+              display: flex;
+              background-color: blue;
+              padding: 10px;
+              margin: 5% auto;
+              width: 250px;
+              height: 250px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 6px solid yellow;
+              box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+            }  
 
           @media print { 
             body { 
@@ -72,17 +85,12 @@
               text-align: center;
             }
 
-            h1 {
+            .display-2 {
               margin: auto;
             }
 
             .git-name {
               font-size: 200%;
-            }
-
-            main {
-              display: grid;
-              grid-template: 50% 50% / 50% 50%;
             }
 
             .public-repositories {
@@ -107,32 +115,8 @@
               border: 3px green solid;
               padding: 10px;
               margin: 1% 1% 1% 1%;
-            }
+            }  
 
-            .photo-header {
-              display: flex;
-              background-color: blue;
-              padding: 10px;
-              margin: 5% auto;
-              width: 250px;
-              height: 250px;
-              border-radius: 50%;
-              object-fit: cover;
-              border: 6px solid yellow;
-              box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
-            }
-
-            .box {
-              border: 3px solid red;
-            }          
-
-            .middle-row {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              margin-top: 20%;
-              margin-bottom: 20px;
-            }
           </style>
     </body>
   </html>

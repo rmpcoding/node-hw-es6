@@ -43,19 +43,18 @@ const generator = (color, response) => {
       />
       <title>Git Resume</title>
   
-      <body class="grid">
+      <body>
+        <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
   
-        
         <h1 class="display-2">
-            <img class="rounded photo-header" src=${response.data.avatar_url} alt="" class="photo">
-            <span class="git-name">${response.data.name}</span>
-          </h1>
+          <span class="git-name">${response.data.name}</span>
+        </h1>
           <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
           <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
 
+
   
         <main>
-
           <div class="public-repositories">
             <p>Public Repositories:</p>
           </div>
@@ -72,27 +71,42 @@ const generator = (color, response) => {
             <p>Following:</p>
           </div>
         </main>
-
+  
+  
           
           
           <style>
-            .grid {
+
+            main {   
               display: grid;
-              height: 100%;
-              width: 100%;
-              border: 1px solid white;
-            }
-  
-            html, body, .wrapper {
-              height: 100%;
-            }       
+              grid-template: 50% 50% / 50% 50%;
+              background-color: yellow;
+              border 1px solid green
+            }   
   
             body {
+              display: grid;
+              height: 100%;
+              width: auto;
+              border: 1px solid white;
               background-color: white;
               -webkit-print-color-adjust: exact !important;
               font-family: 'Cabin', sans-serif;         
             }
-  
+
+            .photo-header {
+              display: flex;
+              background-color: blue;
+              padding: 10px;
+              margin: 5% auto 5% auto;
+              width: 250px;
+              height: 250px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 6px solid yellow;
+              box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+            }  
+
             @media print { 
               body { 
                 zoom: .5; 
@@ -103,30 +117,38 @@ const generator = (color, response) => {
                 text-align: center;
               }
   
-              h1 {
+              .display-2 {
                 margin: auto;
               }
   
-              .photo-header {
-                display: flex;
-                background-color: blue;
+              .git-name {
+                font-size: 200%;
+              }
+
+              .public-repositories {
+                border: 3px green solid;
                 padding: 10px;
-                margin: auto;
-                width: 250px;
-                height: 250px;
-                border-radius: 50%;
-                object-fit: cover;
-                border: 6px solid yellow;
-                box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
-              }          
-  
-              .middle-row {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-top: 20%;
-                margin-bottom: 20px;
+                margin: 1% 1% 1% 1%;
               }
+  
+              .followers {
+                border: 3px green solid;
+                padding: 10px;
+                margin: 1% 1% 1% 1%;
+              }
+  
+              .following {
+                border: 3px green solid;
+                padding: 10px;
+                margin: 1% 1% 1% 1%;
+              }
+  
+              .github-stars {
+                border: 3px green solid;
+                padding: 10px;
+                margin: 1% 1% 1% 1%;
+              }
+      
             </style>
       </body>
     </html>
