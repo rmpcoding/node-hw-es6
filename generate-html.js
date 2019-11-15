@@ -25,7 +25,7 @@ const colors = {
   }
 };
 
-const generator = (color, response) => {
+const generator = (colors, color, response) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -51,7 +51,7 @@ const generator = (color, response) => {
           <span class="git-name">${response.data.name}</span>
         </h1>
           <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
-          <p class="text-center flex-column">${response.data.location}, ${response.data.html_url}, ${response.data.blog}</p>
+          <p class="text-center flex-column"><a href="${response.data.location}">Location</a>   <a href="${response.data.html_url}">GitHub</a>   <a href="${response.data.blog}>Blog</a></p>
 
 
   
@@ -59,11 +59,11 @@ const generator = (color, response) => {
           <div class="buttons">
   
             <div class="public-repositories btn">
-              <p>Public Repositories:</p>
+              <p>Public Repositories: ${response.data.public_repos}</p>
             </div>
             
             <div class="followers btn">
-              <p>Followers:</p>
+              <p>Followers: ${response.data.followers}</p>
             </div>
           </div>
             
@@ -71,11 +71,11 @@ const generator = (color, response) => {
             
             </div>
           <div class="github-stars btn">
-            <p>Stars:</p>
+            <p>Company: ${response.data.company}</p>
           </div>
   
           <div class="following btn">
-            <p>Following:</p>
+            <p>Following: ${response.data.following}</p>
           </div>
         </div>
         </main>
@@ -87,7 +87,7 @@ const generator = (color, response) => {
             main {   
               display: grid;
               grid-template: 50% 50% / 50% 50%;
-              background-color: yellow;
+              background-color: white;
               border 1px solid green;
               margin: auto;
             }   
@@ -109,14 +109,14 @@ const generator = (color, response) => {
 
             .photo-header {
               display: flex;
-              background-color: blue;
+              background-color: ${colors[color].photoBorderColor};
               padding: 10px;
               margin: 5% auto 5% auto;
               width: 250px;
               height: 250px;
               border-radius: 50%;
               object-fit: cover;
-              border: 6px solid yellow;
+              border: 6px solid ${colors[color].headerBackground};
               box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
             }  
 
@@ -143,25 +143,29 @@ const generator = (color, response) => {
               }
 
               .public-repositories {
-                border: 3px green solid;
+                border: 5px ${colors[color].headerBackground} solid;
+                background-color: ${colors[color].photoBorderColor};
                 padding: 10px;
                 margin: 1% 1% 1% 1%;
               }
   
               .followers {
-                border: 3px green solid;
+                border: 5px ${colors[color].headerBackground} solid;
+                background-color: ${colors[color].photoBorderColor};
                 padding: 10px;
                 margin: 1% 1% 1% 1%;
               }
   
               .following {
-                border: 3px green solid;
+                border: 5px ${colors[color].headerBackground} solid;
+                background-color: ${colors[color].photoBorderColor};
                 padding: 10px;
                 margin: 1% 1% 1% 1%;
               }
   
               .github-stars {
-                border: 3px green solid;
+                border: 5px ${colors[color].headerBackground} solid;
+                background-color: ${colors[color].photoBorderColor};
                 padding: 10px;
                 margin: 1% 1% 1% 1%;
               }
@@ -172,19 +176,7 @@ const generator = (color, response) => {
   `;
 };
 
-module.exports = generator;
-
-//
-{
-  /* <p>${response.data.url}</p>
-<p>${response.data.avatar_url}</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p>${response.data.public_repos}</p>
-<p>${response.data.followers}</p>
-<p>${response.data.starred_url}</p>
-<p>${response.data.following}</p> */
+module.exports = {
+  generator: generator,
+  colors: colors
 }
-//

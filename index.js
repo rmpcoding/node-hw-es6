@@ -2,7 +2,8 @@ var inquirer = require("inquirer");
 var api = require("./api");
 var generator = require("./generate-html")
 var pdf = require("html-pdf");
-var options = {format: "Letter"};
+var options = {format: "Tabloid"};
+
 
 inquirer
   .prompt([
@@ -21,7 +22,7 @@ inquirer
   .then(({username, color}) => {
     api.getUser(username).then((data) => {
       // console.log(color, data);
-    let html =  generator(color,data)
+    let html =  generator.generator(generator.colors, color, data)
     pdf.create(html, options).toFile("./gitprofile.pdf", (error, response) => {
       if (error) {
         console.log(error);
@@ -36,24 +37,3 @@ inquirer
   });
 
 
-
-
-      // .then((html, options) => {
-      // pdf
-      
-      // .create(html).toFile("./gitprofile.pdf", (error, response) => {
-      //   if (errror) {
-      //     return console.log(error);
-      //   } else {
-      //     console.log(response);
-      //   }
-      // })
-    // });
-  // return back to this once we get the git stars
-  // .then((response) => {
-  //   console.log(response);
-  // })
-
-
-
-  // Will I need to add module.export variables to dependencies in JSON object?
