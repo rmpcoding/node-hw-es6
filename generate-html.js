@@ -51,7 +51,7 @@ const generator = (colors, color, response) => {
           <span class="git-name">${response.data.name}</span>
         </h1>
           <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
-          <p class="text-center flex-column"><a href="${response.data.location}">Location</a>   <a href="${response.data.html_url}">GitHub</a>   <a href="${response.data.blog}>Blog</a></p>
+          <p class="text-center flex-column"><a href="${response.data.location}">Location</a> <a href="${response.data.html_url}">GitHub </a> <a href="${response.data.blog}">Blog</a></p>
 
 
   
