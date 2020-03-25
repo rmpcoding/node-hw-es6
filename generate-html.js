@@ -6,10 +6,10 @@ const colors = {
         photoBorderColor: '#black'
     },
     blue: {
-        wrapperBackground: '#5F64D3',
-        headerBackground: '#26175A',
+        wrapperBackground: '#74b9ff',
+        headerBackground: '#74b9ff',
         headerColor: 'white',
-        photoBorderColor: '#73448C'
+        photoBorderColor: '#dfe6e9'
     },
     pink: {
         wrapperBackground: '#879CDF',
@@ -51,7 +51,7 @@ const generator = (colors, color, response) => {
           <span class="git-name">${response.data.name}</span>
         </h1>
           <p class="lead git-bio-p"><span class="git-bio">${response.data.bio}</span></p>
-          <p class="text-center flex-column"><a href="${response.data.location}">Location</a> <a href="${response.data.html_url}">GitHub </a> <a href="${response.data.blog}">Blog</a></p>
+          <p class="text-center flex-column"><a href="${response.data.location}">Location</a> <a href="${response.data.html_url}">GitHub</a> <a href="${response.data.blog}">Blog</a></p>
 
 
   

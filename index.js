@@ -20,16 +20,13 @@ inquirer
     ])
     .then(({ username, color }) => {
         api.getUser(username).then(data => {
-            // console.log(color, data);
             let html = generator.generator(generator.colors, color, data);
             pdf.create(html, options).toFile(
                 './gitprofile.pdf',
                 (error, response) => {
                     if (error) {
-                        console.log(error);
                         return error;
                     } else {
-                        console.log(response);
                         return response;
                     }
                 }
