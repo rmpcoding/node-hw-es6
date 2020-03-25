@@ -15,7 +15,7 @@ inquirer
             type: 'list',
             message: 'What is your favorite color?',
             name: 'color',
-            choices: ['red', 'blue', 'green', 'pink']
+            choices: ['red', 'blue', 'green', 'gray']
         }
     ])
     .then(({ username, color }) => {

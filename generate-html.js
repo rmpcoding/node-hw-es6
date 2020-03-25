@@ -11,11 +11,11 @@ const colors = {
         headerColor: 'white',
         photoBorderColor: '#dfe6e9'
     },
-    pink: {
-        wrapperBackground: '#879CDF',
-        headerBackground: '#FF8374',
+    gray: {
+        wrapperBackground: '#fab1a0',
+        headerBackground: '#dfe6e9',
         headerColor: 'white',
-        photoBorderColor: '#FEE24C'
+        photoBorderColor: '#b2bec3'
     },
     red: {
         wrapperBackground: '#DE9967',
@@ -71,7 +71,7 @@ const generator = (colors, color, response) => {
             
             </div>
           <div class="github-stars btn">
-            <p>Company: ${response.data.company}</p>
+            <p>Company: ${ifNull(response)}</p>
           </div>
   
           <div class="following btn">
@@ -175,6 +175,15 @@ const generator = (colors, color, response) => {
     </html>
   `;
 };
+
+const ifNull = response => {
+  if (response.data.company === null) {
+    x = 'Seeking Employment :)'
+    response.data.company = x;
+
+  }
+  return response.data.company;
+}
 
 module.exports = {
     generator: generator,
